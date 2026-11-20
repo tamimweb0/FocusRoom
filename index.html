@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f3fbf6">
+
+    <title>FocusRoom - Focus Together</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Welcome / Join Screen -->
+    <section class="welcome-screen" id="welcome-screen" aria-labelledby="welcome-title">
+        <div class="welcome-card">
+            <div class="welcome-brand">
+                <svg class="welcome-logo" viewBox="0 0 64 64" fill="none"
+                     xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M30 56C12 48 5 31 7 9C26 13 34 29 30 56Z"
+                          fill="#35B65E"/>
+                    <path d="M33 56C29 30 41 10 61 3C64 27 52 47 33 56Z"
+                          fill="#168B48"/>
+                    <path d="M32 56V31" stroke="#F2FFF6"
+                          stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+                <h1>FocusRoom</h1>
+            </div>
+
+            <p class="welcome-message" id="welcome-title">
+                Find your focus. Work alongside others.
+            </p>
+
+            <form class="join-form" id="join-form" novalidate>
+                <label class="visually-hidden" for="temporary-name">
+                    Temporary name
+                </label>
+                <input
+                    type="text"
+                    id="temporary-name"
+                    name="temporary-name"
+                    placeholder="Enter your temporary name"
+                    maxlength="20"
+                    autocomplete="off"
+                    aria-describedby="name-error"
+                    required
+                >
+                <p class="validation-message" id="name-error" role="alert"
+                   aria-live="polite"></p>
+                <button class="join-button" type="submit">Join Space</button>
+            </form>
+        </div>
+    </section>
+
+    <main class="app-container" id="app-dashboard" hidden>
+
+        <!-- Header -->
+        <header class="header">
+
+            <div class="brand">
+                <svg class="brand-logo" viewBox="0 0 64 64" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M30 56C12 48 5 31 7 9C26 13 34 29 30 56Z"
+                          fill="#35B65E"/>
+                    <path d="M33 56C29 30 41 10 61 3C64 27 52 47 33 56Z"
+                          fill="#168B48"/>
+                    <path d="M32 56V31" stroke="#F2FFF6"
+                          stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+
+                <h1>FocusRoom</h1>
+            </div>
+
+            <div class="live-badge">
+                <span class="status-dot"></span>
+                <span>Live</span>
+            </div>
+
+        </header>
+
+
+        <!-- Main Sections -->
+        <div class="dashboard">
+
+            <!-- Personal Stopwatch -->
+            <section class="card stopwatch-card">
+
+                <div class="section-header">
+
+                    <div class="section-title">
+                        <span class="title-indicator"></span>
+                        <h2>Personal Stopwatch</h2>
+                    </div>
+
+                    <div class="ready-badge">
+                        <span class="status-dot"></span>
+                        Ready to Focus
+                    </div>
+
+                </div>
+
+
+                <!-- Timer Display -->
+                <div class="timer-display">
+                    <span>00:00:00</span>
+                </div>
+
+
+                <!-- Stopwatch Controls -->
+                <div class="controls">
+
+                    <div class="primary-controls">
+
+                        <button class="start-btn" type="button">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7 4.8C7 3.9 8 3.4 8.8 3.9L20 11.1C20.8 11.6 20.8 12.4 20 12.9L8.8 20.1C8 20.6 7 20.1 7 19.2V4.8Z"/>
+                            </svg>
+                            Start
+                        </button>
+
+                        <button class="pause-btn" type="button">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <rect x="5" y="3" width="5" height="18" rx="2"/>
+                                <rect x="14" y="3" width="5" height="18" rx="2"/>
+                            </svg>
+                            Pause
+                        </button>
+
+                    </div>
+
+
+                    <button class="continue-btn" type="button">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M7 4.8C7 3.9 8 3.4 8.8 3.9L20 11.1C20.8 11.6 20.8 12.4 20 12.9L8.8 20.1C8 20.6 7 20.1 7 19.2V4.8Z"/>
+                        </svg>
+                        Continue
+                    </button>
+
+
+                    <button class="reset-btn" type="button">
+                        <svg viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2"
+                             stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 7V3L16 7"/>
+                            <path d="M4 17v4l4-4"/>
+                            <path d="M5.6 9A7 7 0 0 1 19 7"/>
+                            <path d="M18.4 15A7 7 0 0 1 5 17"/>
+                        </svg>
+                        Reset
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- Online Users -->
+            <section class="card users-card">
+
+                <div class="section-header">
+
+                    <div class="section-title">
+                        <span class="title-indicator"></span>
+                        <h2>Online Users</h2>
+                    </div>
+
+                    <div class="online-count">
+                        <span class="status-dot"></span>
+                        <span id="online-count">0 Online</span>
+                    </div>
+
+                </div>
+
+
+                <!-- User List -->
+                <div class="user-list" id="user-list">
+                    <!-- Users will be added by JavaScript -->
+                </div>
+
+
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Supabase JavaScript client v2 (official CDN build) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+</html>
